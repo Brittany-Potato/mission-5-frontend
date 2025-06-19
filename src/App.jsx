@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import mainSearchPage from './pages/main-search-page';
-import productViewPage from './pages/product-view-page';
-import './App.css';
+import MainSearchPage from './pages/main-search-page/main-search-page';
+// import productViewPage from './pages/product-view-page/product-view-page';
+import './App.module.css';
 
 function App() {
 
@@ -11,8 +11,8 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<mainSearchPage />} />
-          <Route path="/" element={<productViewPage />} />
+          <Route path="/" element={<MainSearchPage />} />
+          {/* <Route path="/" element={<productViewPage />} /> */}
         </Routes>
       </Router>
     </>

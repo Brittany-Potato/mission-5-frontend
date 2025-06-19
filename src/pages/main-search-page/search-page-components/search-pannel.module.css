@@ -1,0 +1,43 @@
+.mainSearchContainer {
+    border: 3px purple solid;
+    width: 1428.8167002440525px;
+    height: 481.74055635938794px;
+    align-content: center;
+    gap: 10px;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    border: 1px solid #2B8FD3;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.topSearchBoxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.middleSearchContainers {
+    display: flex;
+    flex-direction: row;
+    margin-right: 40%;
+    justify-content: space-between;
+
+}
+
+.searchKeywordsDiv {
+    display: flex;
+    flex-direction: row;
+    margin: 1%;
+}
+
+input {
+    border: 1px gray stroke;
+    border-radius: 5px 5px 5px 5px;
+    height: 60px;
+    width: 420px;
+    margin: 40px;
+    padding: space/300px;
+    gap: Space/200px;
+}
