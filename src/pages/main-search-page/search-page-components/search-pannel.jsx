@@ -13,7 +13,9 @@ export default function SearchPannel() {
         { id: 'all', label: "All Category" }
     ]
 
-
+function handleClick() {
+    console.log("Search button clicked");
+}
 
 
 
@@ -46,7 +48,7 @@ export default function SearchPannel() {
                 <input type="search" placeholder='Search Keywords....' className={styles.searchKeywords}/>
             </div>
             <div className={styles.searchButtonDiv}>
-                <button className={styles.searchButton}>Search</button>
+                <button className={styles.searchButton} onClick={handleClick}>Search</button>
             </div>
         </div>
     )
