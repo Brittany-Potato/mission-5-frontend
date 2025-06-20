@@ -3,11 +3,11 @@
     height: 481.74055635938794px;
     align-content: center;
     gap: 10px;
-    /* padding-top: 26px; */
     padding-bottom: 26px;
     border: 1px solid #2B8FD3;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    margin-left: 10%;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
