@@ -21,4 +21,65 @@
     width: 628px;
     height: 40px;
     border-radius: 25px;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+
+searchBar::placeholder {
+}
+
+.searchIcon {
+    display: flex;
+    position: absolute;
+    top: 6.5%;
+    left: 15.5%;
+}
+
+.navLinks {
+    display: flex;
+    width: 46%;
+    justify-content: space-between;
+}
+
+.singleNav {
+    font-size: 16px;
+    text-decoration: none;
+    color: #44413D;
+    font-weight: 400;
+    margin-top: 3.5%;
+}
+
+.categoryIconDiv {
+    display: flex;
+    position: relative;
+    right: 40.5%;
+    bottom: 5%;
+}
+
+.watchlistIconDiv {
+    display: flex;
+    position: relative;
+    right: 32.7%;
+    bottom: 5%;
+}
+
+.favouritesIconDiv {
+    display: flex;
+    position: relative;
+    right: 24.6%;
+    bottom: 5%;
+}
+
+.compareIconDiv {
+    display: flex;
+    position: relative;
+    right: 16.2%;
+    bottom: 5%;
+}
+
+.myTradeMeIconDiv {
+    display: flex;
+    position: relative;
+    right: 7.5%;
+    bottom: 5.5%;
 }
