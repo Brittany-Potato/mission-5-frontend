@@ -1,15 +1,16 @@
 .mainSearchContainer {
-    border: 3px purple solid;
     width: 1428.8167002440525px;
     height: 481.74055635938794px;
     align-content: center;
     gap: 10px;
-    padding-top: 26px;
+    /* padding-top: 26px; */
     padding-bottom: 26px;
     border: 1px solid #2B8FD3;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .topSearchBoxes {
     display: flex;
@@ -30,14 +31,78 @@
     display: flex;
     flex-direction: row;
     margin: 1%;
+    position: relative;
+    right: 1%;
 }
 
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.searchButtonTopDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 0%;
+}
+
+.searchTopButtons {
+    border: 2px solid #007ACD;
+    background-color: white;
+    width: 278px;
+    height: 57px;
+    top: 421px;
+    gap: 10px;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-style: arial;
+    font-weight: 700;
+    font-size: 24px;
+    color: #44413D;
+    padding-top: 15px;
+}
+
+.searchButtonDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-right: 5%;
+    position: relative;
+    bottom: 25%;
+}
+
+.searchButton {
+    background-color: #007ACD;
+    width: 200px;
+    height: 50px;
+    border-radius: 4px;
+    padding-top: 12px;
+    padding-right: Space/300;
+    padding-bottom: 12px;
+    padding-left: Space/300;
+    border: solid 2px #007ACD;
+    color: white;
+}
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 input {
-    border: 1px gray stroke;
-    border-radius: 5px 5px 5px 5px;
+    border: 1px #9c9b9b solid;
+    border-radius: 5px;
     height: 60px;
     width: 420px;
     margin: 40px;
-    padding: space/300px;
-    gap: Space/200px;
+    appearance: none;
+    outline: none;
+}
+
+input::placeholder {
+    position: relative;
+    left: 15px;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: Arial;
 }
