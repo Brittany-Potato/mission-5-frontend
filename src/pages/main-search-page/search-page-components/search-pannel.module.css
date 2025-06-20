@@ -35,6 +35,10 @@
     right: 1%;
 }
 
+.searchKeywords {
+    cursor: pointer;
+
+}
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -61,6 +65,8 @@
     font-size: 24px;
     color: #44413D;
     padding-top: 15px;
+    cursor: pointer;
+
 }
 
 .searchButtonDiv {
@@ -83,6 +89,8 @@
     padding-left: Space/300;
     border: solid 2px #007ACD;
     color: white;
+    cursor: pointer;
+
 }
 
 
@@ -97,6 +105,8 @@ input {
     margin: 40px;
     appearance: none;
     outline: none;
+    cursor: pointer;
+
 }
 
 input::placeholder {
@@ -105,4 +115,9 @@ input::placeholder {
     font-weight: 400;
     font-size: 18px;
     font-style: Arial;
+}
+
+.clicked {
+    background-color: #007ACD;
+    color: white;
 }
