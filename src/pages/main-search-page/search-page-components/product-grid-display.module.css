@@ -1,0 +1,56 @@
+.gridDiv {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-left: 5%;
+}
+
+.cardDiv {
+    width: 268px;
+    height: 355px;
+    border: 1px lightgray solid;
+    justify-content: center;
+    border-radius: 5px;
+    margin-bottom: 10%;
+}
+
+.cardImage {
+    width: 236px;
+    height: 200px;
+    margin-left: 6%;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.productLocation {
+    display: flex;
+    float: left;
+    margin-top: 0;
+}
+
+.auctionClosingDate {
+    display: flex;
+    float: right;
+    margin-top: 0;
+}
+
+.productTitle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+}
+
+.buyNow {}
+
+.productPrice {}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+p {
+    display: flex;
+    font-size: 16px;
+    color: #44413D;
+    font-weight: 400;
+
+}
