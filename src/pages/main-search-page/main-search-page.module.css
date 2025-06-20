@@ -1,0 +1,17 @@
+.resultsTitle {
+    margin-left: 5%;
+    display: flex;
+    color: #44413D;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.moreLink {
+    justify-content: right;
+    margin-left: 90%;
+    font-style: arial;
+    font-weight: 400;
+    font-size: 18px;
+    color: #007ACD;
+    text-decoration: none;
+}

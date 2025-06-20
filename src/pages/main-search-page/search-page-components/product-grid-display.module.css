@@ -25,12 +25,16 @@
     display: flex;
     float: left;
     margin-top: 0;
+    margin: 5%;
+
 }
 
 .auctionClosingDate {
     display: flex;
     float: right;
     margin-top: 0;
+    margin: 5%;
+
 }
 
 .productTitle {
@@ -39,11 +43,18 @@
     align-items: center;
     width: 100%;
     font-size: 18px;
+    margin: 5%;
 }
 
-.buyNow {}
+.buyNow {
+    margin: 5%;
 
-.productPrice {}
+}
+
+.productPrice {
+    margin: 5%;
+
+}
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
