@@ -86,7 +86,7 @@ export default function SearchPannel() {
         if (input.condition) parts.push(`that are ${input.condition}`);
         if (input.payment) parts.push(`paid by ${input.payment}`);
         if (input.shipping) parts.push(`with ${input.shipping}`);
-        if (input.price) parts.push(`priced at ${input.price}`);
+        if (input.price) parts.push(`priced at between ${input.price}`);
         if (input.clearance === true) parts.push(`and on clearance`);
 
         return parts.join(`, `);
