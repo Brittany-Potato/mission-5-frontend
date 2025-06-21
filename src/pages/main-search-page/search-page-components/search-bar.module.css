@@ -13,6 +13,11 @@
     background-color: #F6F5F4;
     /* color: #F6F5F4; */
     border: 1px solid #F6F5F4;
+    font-style: arial;
+    font-weight: 700;
+    font-size: 24px;
+    padding-left: 5%;
+    color: #757575;
 }
 
 .searchBar::placeholder {
