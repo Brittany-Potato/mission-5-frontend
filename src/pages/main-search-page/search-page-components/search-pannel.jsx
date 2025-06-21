@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styles from './search-pannel.module.css'
+import axios from 'axios'
 
 export default function SearchPannel() {
 
@@ -13,11 +14,54 @@ export default function SearchPannel() {
         { id: 'all', label: "All Category" }
     ]
 
-function handleClick() {
-    console.log("Search button clicked");
-}
+    function handleClick() {
+        console.log("Search button clicked");
+    }
 
+    const [value, setValue] = useState('');
+    const [inputValue, setInputValue] = useState({
+        searchBy: '',
+        title: '',
+        location: '',
+        condition: '',
+        payment: '',
+        shipping: '',
+        price: '',
+        clearance: ''
 
+    });
+
+    const handleKeyDown = async (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            try {
+                const response = await axios.post('http://localhost:3000/homepageSearch', {
+                    search: inputValue
+                });
+                const innerData = response.data;
+
+                Object.entries(innerData).forEach(([key, value]) => {
+                    if (typeof value === 'object' && value !== null) {
+                        alert(`${key}: ${JSON.stringify(value, null, 2)}`);
+                    } else {
+                        alert(`${key}: ${value}`);
+                    }
+                });
+                // alert(response.data);
+            } catch (err) {
+                console.error("Failed to search:", err.message);
+            }
+        };
+    }
+
+    const handleChange = (field, event) => {
+        setInputValue(prev => ({
+            ...prev,
+            [field]: event.target.value,
+
+            
+        }));
+    }
 
 
     return (
@@ -33,19 +77,74 @@ function handleClick() {
             </div>
             {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
             <div className={styles.topSearchBoxes}>
-                <input type="select" placeholder='Search by' />
-                <input type="select" placeholder='Location' />
-                <input type="select" placeholder='Condition' />
+                <select className={styles.dropDownsearchBy} value={inputValue.searchBy} onChange={(e) => handleChange('searchBy', e)}>
+                <option value="">Search By</option>
+                <option value="location">Location</option>
+                <option value="Condition">Condition</option>
+                <option value="Payment">Payment</option>
+                <option value="Shipping">Shipping</option>
+                <option value="Price">Price</option>
+                <option value="Clearance">Clearance</option>
+                </select>
+
+                <select className={styles.dropDownLocation} value={inputValue.location} onChange={(e) => handleChange('location', e)}>
+                    <option value="">Location</option>
+                    <option value="Auckland">Auckland</option>
+                    <option value="Hawkes Bay">Hawkes Bay</option>
+                    <option value="Wellington">Wellington</option>
+                    <option value="Tauranga">Tauranga</option>
+                    <option value="Hamilton">Hamilton</option>
+                    <option value="Christchurch">Christchurch</option>
+                    <option value="Queenstown">Queenstown</option>
+                    <option value="Taupo">Taupo</option>
+                    <option value="Palmeston North">Palmeston North</option>
+                </select>
+
+                <select className={styles.dropDownCondition} value={inputValue.condition} onChange={(e) => handleChange('condition', e)}>
+                    <option value="">Condition</option>
+                    <option value="New">New</option>
+                    <option value="Used">Used</option>
+                </select>
             </div>
             {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
             <div className={styles.middleSearchContainers}>
-                <input type="select" placeholder='Payment' />
-                <input type="select" placeholder='Shipping' />
-                <input type="select" placeholder='Price' />
-                <input type="select" placeholder='Clearance' />
+
+                <select className={styles.dropDownPayment} value={inputValue.payment} onChange={(e) => handleChange('payment', e)}>
+                    <option value="">Payment</option>
+                    <option value="Eftpos">Eftpos</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Paypal">Paypal</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Check">Check</option>
+                </select>
+                
+                <select className={styles.dropDownShipping} value={inputValue.shipping} onChange={(e) => handleChange('shipping', e)}>
+                    <option value="">Shipping</option>
+                    <option value="Courier">Courier</option>
+                    <option value="Pick up">Pick up</option>
+                    <option value="Free Shipping">Free Shipping</option>
+                    <option value="Drop off">Drop off</option>
+                </select>
+
+                <select className={styles.dropDownPrice} value={inputValue.price} onChange={(e) => handleChange('price', e)}>
+                    <option value="">Price</option>
+                    <option value="$0 - $50">$0 - $50</option>
+                    <option value="$50 - $100">$50 - $100</option>
+                    <option value="$100 - $200">$100 - $200</option>
+                    <option value="$200 +">$200 +</option>
+                </select>
+
+                <select className={styles.dropDownClearance} value={inputValue.clearance} onChange={(e) => handleChange('clearance', e)}>
+                    <option value="">Clearance</option>
+                    <option value="true">true</option>
+                    <option value="false">false</option>
+                </select>
+
+
             </div>
             <div className={styles.searchKeywordsDiv}>
-                <input type="search" placeholder='Search Keywords....' className={styles.searchKeywords}/>
+                <input type="text" placeholder='Search Keywords....' className={styles.searchKeywords} onChange={(e) => handleChange('searchBy', e)}
+                    value={inputValue.searchBy} />
             </div>
             <div className={styles.searchButtonDiv}>
                 <button className={styles.searchButton} onClick={handleClick}>Search</button>

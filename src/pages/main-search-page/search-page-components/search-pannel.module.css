@@ -37,6 +37,96 @@
 
 .searchKeywords {
     cursor: pointer;
+    color: black;
+}
+
+.dropDownLocation {
+    width: 419px;
+    height: 60px;
+    margin-left: 1%;
+    margin-top: 3%;
+    border: 1px #9c9b9b solid;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: Arial;
+    padding-left: 15px;
+
+}
+
+.dropDownsearchBy {
+    width: 419px;
+    height: 60px;
+    margin-left: 3%;
+    margin-top: 3%;
+    border: 1px #9c9b9b solid;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: Arial;
+    padding-left: 15px;
+
+}
+
+.dropDownCondition {
+    width: 419px;
+    height: 60px;
+    margin-left: 1%;
+    margin-top: 3%;
+    border: 1px #9c9b9b solid;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: Arial;
+    padding-left: 15px;
+    margin-right: 3%;
+}
+
+.dropDownPayment {
+    height: 60px;
+    width: 195;
+    border: 1px #9c9b9b solid;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: Arial;
+    padding-left: 15px;
+
+}
+
+.dropDownShipping {
+    height: 60px;
+    width: 195;
+    border: 1px #9c9b9b solid;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: Arial;
+    padding-left: 15px;
+
+}
+
+.dropDownPrice {
+    height: 60px;
+    width: 195;
+    border: 1px #9c9b9b solid;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: Arial;
+    padding-left: 15px;
+
+}
+
+.dropDownClearance {
+    height: 60px;
+    width: 195;
+    border: 1px #9c9b9b solid;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 18px;
+    font-style: Arial;
+    padding-left: 15px;
 
 }
 
