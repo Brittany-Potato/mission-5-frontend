@@ -12,6 +12,7 @@
     margin-left: 8%;
     row-gap: 10px;
     column-gap: 100px;
+    list-style-type: none;
 }
 
 .list {

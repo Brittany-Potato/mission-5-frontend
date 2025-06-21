@@ -21,8 +21,10 @@
     width: 628px;
     height: 40px;
     border-radius: 25px;
-    padding-left: 20px;
-    padding-top: 5px;
+    padding-left: 5%;
+    padding-top: 5px; 
+    color: #44413D;
+    font-weight: 400;
 }
 
 

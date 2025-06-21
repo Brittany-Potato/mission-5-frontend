@@ -1,33 +1,59 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './search-directory.module.css'
 
 export default function SearchDirectory() {
+
+  const categories = [
+    "Bathrrom", "Cleaning Bins", "Curtains", "Bedframe", "lamp", "laundry", "storage", "travel", "table",
+    "kitchen", "Heating and cooling", "Home decor", "art posters", "cleaning", "Mat and Rug", "outdoor", "clock",
+    "utensils", "office", "blanket"
+  ];
+
+  const [counts, setCounts] = useState({});
+
+  useEffect(() => {
+    const fetchCounts = async () => {
+      const newCounts = {};
+
+      await Promise.all(
+        categories.map(async (title) => {
+          try {
+            const res = await fetch("http://localhost:3000/countItems", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ title })
+            });
+            const data = await res.json();
+            newCounts[title] = data.count || 0;
+          } catch (err) {
+            console.error("Error fetching count for:", err.message.title);
+            newCounts[title] = 0;
+          }
+        })
+      );
+
+      setCounts(newCounts);
+    };
+
+    fetchCounts();
+  }, []);
+
   return (
     <div className={StyleSheet.mainSearchContainer}>
-        <ul>
-            <li className={styles.unorderedList}>
-                <a href="" className={styles.list}>Bathroom</a>
-                <a href="" className={styles.list}>Cleaning Bin</a>
-                <a href="" className={styles.list}>Curtains</a>
-                <a href="" className={styles.list}>Bedframe</a>
-                <a href="" className={styles.list}>Lamp</a>
-                <a href="" className={styles.list}>Laundry</a>
-                <a href="" className={styles.list}>Storage</a>
-                <a href="" className={styles.list}>Travel</a>
-                <a href="" className={styles.list}>Table</a>
-                <a href="" className={styles.list}>Kitchen</a>
-                <a href="" className={styles.list}>Heating and Cooling</a>
-                <a href="" className={styles.list}>Home Decor</a>
-                <a href="" className={styles.list}>Art Posters</a>
-                <a href="" className={styles.list}>Cleaning</a>
-                <a href="" className={styles.list}>Mat and Rugs</a>
-                <a href="" className={styles.list}>Outdoor</a>
-                <a href="" className={styles.list}>Clock</a>
-                <a href="" className={styles.list}>Utensils</a>
-                <a href="" className={styles.list}>Office</a>
-                <a href="" className={styles.list}>Blanket</a>
-            </li>
-        </ul>
+      <ul className={styles.unorderedList}>
+        {categories.map((title) => (
+          <li key={title}>
+            <p key={title} className={styles.list}>
+              {title} ({counts[title] ?? "..."})
+            </p>
+
+
+          </li>
+        ))}
+      </ul>
     </div>
   )
+
 }
+
+
