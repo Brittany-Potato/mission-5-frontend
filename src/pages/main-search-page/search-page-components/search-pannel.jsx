@@ -59,7 +59,7 @@ export default function SearchPannel() {
             ...prev,
             [field]: event.target.value,
 
-            
+
         }));
     }
 
@@ -78,13 +78,13 @@ export default function SearchPannel() {
             {/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */}
             <div className={styles.topSearchBoxes}>
                 <select className={styles.dropDownsearchBy} value={inputValue.searchBy} onChange={(e) => handleChange('searchBy', e)}>
-                <option value="">Search By</option>
-                <option value="location">Location</option>
-                <option value="Condition">Condition</option>
-                <option value="Payment">Payment</option>
-                <option value="Shipping">Shipping</option>
-                <option value="Price">Price</option>
-                <option value="Clearance">Clearance</option>
+                    <option value="">Search By</option>
+                    <option value="location">Location</option>
+                    <option value="Condition">Condition</option>
+                    <option value="Payment">Payment</option>
+                    <option value="Shipping">Shipping</option>
+                    <option value="Price">Price</option>
+                    <option value="Clearance">Clearance</option>
                 </select>
 
                 <select className={styles.dropDownLocation} value={inputValue.location} onChange={(e) => handleChange('location', e)}>
@@ -110,14 +110,14 @@ export default function SearchPannel() {
             <div className={styles.middleSearchContainers}>
 
                 <select className={styles.dropDownPayment} value={inputValue.payment} onChange={(e) => handleChange('payment', e)}>
-                    <option value="">Payment</option>
+                    <option value="">Payment </option>
                     <option value="Eftpos">Eftpos</option>
                     <option value="Credit Card">Credit Card</option>
                     <option value="Paypal">Paypal</option>
                     <option value="Cash">Cash</option>
                     <option value="Check">Check</option>
                 </select>
-                
+
                 <select className={styles.dropDownShipping} value={inputValue.shipping} onChange={(e) => handleChange('shipping', e)}>
                     <option value="">Shipping</option>
                     <option value="Courier">Courier</option>

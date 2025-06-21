@@ -22,8 +22,9 @@
 .middleSearchContainers {
     display: flex;
     flex-direction: row;
-    margin-right: 40%;
-    justify-content: space-between;
+    margin-right: 30%;
+    justify-content: space-evenly;
+    gap: 5%;
 
 }
 
@@ -51,6 +52,11 @@
     font-size: 18px;
     font-style: Arial;
     padding-left: 15px;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 22px 22px;
+    background-image: url("data:image/svg+xml,%3Csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M18.4912%206.75781L3.15356%207.07697L11.0339%2017.0822L18.4912%206.75781Z'%20fill='%23007ACD'/%3E%3C/svg%3E");
 
 }
 
@@ -65,6 +71,11 @@
     font-size: 18px;
     font-style: Arial;
     padding-left: 15px;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 22px 22px;
+    background-image: url("data:image/svg+xml,%3Csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M18.4912%206.75781L3.15356%207.07697L11.0339%2017.0822L18.4912%206.75781Z'%20fill='%23007ACD'/%3E%3C/svg%3E");
 
 }
 
@@ -80,11 +91,17 @@
     font-style: Arial;
     padding-left: 15px;
     margin-right: 3%;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 22px 22px;
+    background-image: url("data:image/svg+xml,%3Csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M18.4912%206.75781L3.15356%207.07697L11.0339%2017.0822L18.4912%206.75781Z'%20fill='%23007ACD'/%3E%3C/svg%3E");
+
 }
 
 .dropDownPayment {
     height: 60px;
-    width: 195;
+    width: 195px;
     border: 1px #9c9b9b solid;
     border-radius: 5px;
     font-weight: 400;
@@ -93,12 +110,17 @@
     padding-left: 15px;
     margin-top: 5%;
     margin-left: 5%;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 22px 22px;
+    background-image: url("data:image/svg+xml,%3Csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M18.4912%206.75781L3.15356%207.07697L11.0339%2017.0822L18.4912%206.75781Z'%20fill='%23007ACD'/%3E%3C/svg%3E");
 
 }
 
 .dropDownShipping {
     height: 60px;
-    width: 195;
+    width: 195px;
     border: 1px #9c9b9b solid;
     border-radius: 5px;
     font-weight: 400;
@@ -106,12 +128,17 @@
     font-style: Arial;
     padding-left: 15px;
     margin-top: 5%;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 22px 22px;
+    background-image: url("data:image/svg+xml,%3Csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M18.4912%206.75781L3.15356%207.07697L11.0339%2017.0822L18.4912%206.75781Z'%20fill='%23007ACD'/%3E%3C/svg%3E");
 
 }
 
 .dropDownPrice {
     height: 60px;
-    width: 195;
+    width: 195px;
     border: 1px #9c9b9b solid;
     border-radius: 5px;
     font-weight: 400;
@@ -119,19 +146,29 @@
     font-style: Arial;
     padding-left: 15px;
     margin-top: 5%;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 22px 22px;
+    background-image: url("data:image/svg+xml,%3Csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M18.4912%206.75781L3.15356%207.07697L11.0339%2017.0822L18.4912%206.75781Z'%20fill='%23007ACD'/%3E%3C/svg%3E");
 
 }
 
 .dropDownClearance {
     height: 60px;
-    width: 195;
+    width: 195px;
     border: 1px #9c9b9b solid;
     border-radius: 5px;
     font-weight: 400;
     font-size: 18px;
     font-style: Arial;
-    /* padding-left: 15px; */
+    padding-left: 15px;
     margin-top: 5%;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 22px 22px;
+    background-image: url("data:image/svg+xml,%3Csvg%20width='22'%20height='22'%20viewBox='0%200%2022%2022'%20xmlns='http://www.w3.org/2000/svg'%3E%3Cpath%20d='M18.4912%206.75781L3.15356%207.07697L11.0339%2017.0822L18.4912%206.75781Z'%20fill='%23007ACD'/%3E%3C/svg%3E");
 
 }
 
