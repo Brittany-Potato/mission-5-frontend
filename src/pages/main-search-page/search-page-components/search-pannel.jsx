@@ -14,8 +14,23 @@ export default function SearchPannel() {
         { id: 'all', label: "All Category" }
     ]
 
-    function handleClick() {
+    async function handleClick() {
         console.log("Search button clicked");
+        const searchPrompt = buildSearchPrompt(inputValue);
+        console.log("Sending search prompt:", searchPrompt);
+
+        const response = await axios.post('http://localhost:3000/homepageSearch', {
+            search: searchPrompt
+        }).then((response) => {
+            const innerData = response.data;
+            Object.entries(innerData).forEach(([key, value]) => {
+                if (typeof value === 'object' && value !== null) {
+                    alert(`${key}: ${JSON.stringify(value, null, 2)}`);
+                } else {
+                    alert(`${key}: ${value}`);
+                }
+            })
+        })
     }
 
     const [value, setValue] = useState('');
@@ -36,7 +51,7 @@ export default function SearchPannel() {
             event.preventDefault();
             try {
                 const response = await axios.post('http://localhost:3000/homepageSearch', {
-                    search: inputValue
+                    search: buildSearchPrompt(inputValue)
                 });
                 const innerData = response.data;
 
@@ -62,6 +77,22 @@ export default function SearchPannel() {
 
         }));
     }
+
+    function buildSearchPrompt(input) {
+        let parts = [];
+
+        if (input.title) parts.push(input.title);
+        if (input.location) parts.push(`location is ${input.location}`);
+        if (input.condition) parts.push(`that are ${input.condition}`);
+        if (input.payment) parts.push(`paid by ${input.payment}`);
+        if (input.shipping) parts.push(`with ${input.shipping}`);
+        if (input.price) parts.push(`priced at ${input.price}`);
+        if (input.clearance === true) parts.push(`and on clearance`);
+
+        return parts.join(`, `);
+    }
+
+
 
 
     return (

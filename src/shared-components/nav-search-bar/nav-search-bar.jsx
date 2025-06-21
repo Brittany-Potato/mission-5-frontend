@@ -11,7 +11,7 @@ export default function NavSearchBar() {
                 </div>
                 <div>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.searchIcon}>
-                        <path d="M19 19L14.65 14.65M17 9C17 13.4183 13.4183 17 9 17C4.58172 17 1 13.4183 1 9C1 4.58172 4.58172 1 9 1C13.4183 1 17 4.58172 17 9Z" stroke="#2F2C28" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M19 19L14.65 14.65M17 9C17 13.4183 13.4183 17 9 17C4.58172 17 1 13.4183 1 9C1 4.58172 4.58172 1 9 1C13.4183 1 17 4.58172 17 9Z" stroke="#2F2C28" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                     <input type="text" name="" id="" className={styles.searchBar} placeholder='Search all of Trade' />
                 </div>
@@ -29,7 +29,7 @@ export default function NavSearchBar() {
                 </div>
                 <div className={styles.watchlistIconDiv}>
                     <svg className={styles.watchlistIcon} width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_99_3696)">
+                        <g clipPath="url(#clip0_99_3696)">
                             <path d="M24.5 9V10.5H14.2109C13.9297 9.57812 13.6484 8.66797 13.3672 7.76953C13.0859 6.87109 12.7969 5.95703 12.5 5.02734C12.2109 5.94922 11.9258 6.85938 11.6445 7.75781C11.3633 8.65625 11.0781 9.57031 10.7891 10.5H4.90625C5.70312 11.1094 6.49219 11.7188 7.27344 12.3281C8.05469 12.9375 8.84766 13.543 9.65234 14.1445C9.33984 15.1133 9.03516 16.0742 8.73828 17.0273C8.44141 17.9805 8.14453 18.9453 7.84766 19.9219L12.5 16.3359V18.2344L5 24L7.90625 14.6953L0.5 9H9.6875L12.5 0L15.3125 9H24.5ZM14 13.5H24.5V15H14V13.5ZM14 18H24.5V19.5H14V18Z" fill="#2F2C28" />
                         </g>
                         <defs>
