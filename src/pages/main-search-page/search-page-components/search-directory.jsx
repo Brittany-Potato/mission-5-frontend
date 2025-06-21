@@ -46,8 +46,6 @@ export default function SearchDirectory() {
             <p key={title} className={styles.list}>
               {title} ({counts[title] ?? "..."})
             </p>
-
-
           </li>
         ))}
       </ul>
