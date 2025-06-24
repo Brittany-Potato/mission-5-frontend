@@ -1,0 +1,65 @@
+.container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.main {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.gallery {
+  flex: 1;
+}
+
+.mainImage {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+.thumbnails {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.price, .bid {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.buyBtn, .bidBtn {
+  padding: 0.75rem;
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.buyBtn:hover, .bidBtn:hover {
+  background-color: #005bb5;
+}
+
+.tabs, .seller {
+  margin-top: 2rem;
+}
