@@ -1,0 +1,51 @@
+.comparison-page {
+  padding: 20px;
+  position: relative;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.compare-title {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.close-button svg {
+  width: 30px;
+  height: 30px;
+}
+
+.comparison-table-button {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 25px;
+  font-weight: 600;
+  color: #2D6EC2;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.comparison-table-button svg {
+  width: 30px;
+  height: 30px;
+  margin-right: 100px;
+}
