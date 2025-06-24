@@ -1,10 +1,41 @@
-import React from 'react';
+
 import { useNavigate } from 'react-router-dom'; // ✅ added
+import React, { useState, useEffect } from 'react';
 import styles from './nav-search-bar.module.css';
 import trademelogo from '../../pages/main-search-page/search-page-components/images/trademelogo.png';
+import axios from 'axios';
+
 
 export default function NavSearchBar() {
+
     const navigate = useNavigate(); // ✅ added
+    const [value, setValue] = useState('');
+    const [inputValue, setInputValue] = useState('');
+
+
+    const handleKeyDown = async (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            try {
+                const response = await axios.post('http://localhost:3000/homepageSearch', {
+                    search: inputValue
+                });
+                const innerData = response.data;
+
+                Object.entries(innerData).forEach(([key, value]) => {
+                    if (typeof value === 'object' && value !== null) {
+                        alert(`${key}: ${JSON.stringify(value, null, 2)}`);
+                    } else {
+                        alert(`${key}: ${value}`);
+                    }
+                });
+                // alert(response.data);
+            } catch (err) {
+                console.error("Failed to search:", err.message);
+            }
+        };
+    }
+
 
     return (
         <div className={styles.mainNavContainer}>
@@ -16,7 +47,8 @@ export default function NavSearchBar() {
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.searchIcon}>
                         <path d="M19 19L14.65 14.65M17 9C17 13.4183 13.4183 17 9 17C4.58172 17 1 13.4183 1 9C1 4.58172 4.58172 1 9 1C13.4183 1 17 4.58172 17 9Z" stroke="#2F2C28" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                    <input type="text" name="" id="" className={styles.searchBar} placeholder='Search all of Trade' />
+                    <input type="text" name="" id="" className={styles.searchBar} placeholder='Search all of Trade' onChange={(e) => setInputValue(e.target.value)} onKeyDown={handleKeyDown}
+        value={inputValue}/>
                 </div>
                 <div className={styles.navLinks}>
                     <a href="" className={styles.singleNav}>Categories</a>

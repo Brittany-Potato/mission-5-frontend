@@ -65,3 +65,34 @@ p {
     font-weight: 400;
 
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+@media (max-width: 390px) {
+
+
+    .gridDiv {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .cardDiv {
+        height: auto;
+        width: 100%;
+    }
+
+    .cardImage {
+        width: 90%;
+        height: auto;
+    }
+
+    .productLocation, .auctionClosingDate, .productTitle, .buyNow, .productPrice {
+        font-size: 20px;
+    }
+
+}
