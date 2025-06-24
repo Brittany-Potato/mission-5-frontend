@@ -52,28 +52,28 @@
 .categoryIconDiv {
     display: flex;
     position: relative;
-    right: 40.5%;
+    right: 41.5%;
     bottom: 5%;
 }
 
 .watchlistIconDiv {
     display: flex;
     position: relative;
-    right: 32.7%;
+    right: 33.4%;
     bottom: 5%;
 }
 
 .favouritesIconDiv {
     display: flex;
     position: relative;
-    right: 24.6%;
+    right: 25%;
     bottom: 5%;
 }
 
 .compareIconDiv {
     display: flex;
     position: relative;
-    right: 16.2%;
+    right: 16.5%;
     bottom: 5%;
 }
 
