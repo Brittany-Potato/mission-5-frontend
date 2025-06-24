@@ -25,3 +25,14 @@
     margin-left: 0%;
     margin-right: 15px;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+@media (maxWidth: 390) {
+
+    .mainSearchContainer, .unorderedList, .list {
+        appearance: none;
+        display: none;
+    }
+
+}

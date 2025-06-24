@@ -1,0 +1,98 @@
+* {
+  font-family: Arial, sans-serif;
+}
+
+.comparison-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 150px repeat(auto-fit, minmax(260px, 1fr));
+  column-gap: 2rem;
+  row-gap: 0;
+  justify-content: center;
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 40px;
+}
+
+.grid-product-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.grid-product-card img {
+  width: 245px;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.attribute-cell {
+  padding: 10px;
+  font-weight: bold;
+  border: 1px solid #D8EFFF;
+  text-align: center;
+}
+
+.value-cell {
+  padding: 10px;
+  border: 1px solid #D8EFFF;
+  text-align: center;
+}
+
+.attr-light {
+  background-color: #D8EFFF;
+}
+
+.attr-white {
+  background-color: #FFF;
+}
+
+.val-light {
+  background-color: #F3FAFF;
+}
+
+.val-white {
+  background-color: #FFF;
+}
+
+.remove-btn-wrapper {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.remove-btn {
+  font-size: 17px;
+  font-weight: 600;
+  width: 115px;
+  height: 37px;
+  background-color: #F6F5F4;
+  color: #007ACD;
+  border: none;
+  cursor: pointer;
+}
+
+.comparison-link {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #007ACD;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+}

@@ -42,7 +42,7 @@ export default function SearchPannel() {
         payment: '',
         shipping: '',
         price: '',
-        clearance: ''
+        clearance: '',
 
     });
 
@@ -81,13 +81,14 @@ export default function SearchPannel() {
     function buildSearchPrompt(input) {
         let parts = [];
 
+        if (input.searchBy) parts.push(`with these keywords: ${searchBy}`);
         if (input.title) parts.push(input.title);
         if (input.location) parts.push(`location is ${input.location}`);
         if (input.condition) parts.push(`that are ${input.condition}`);
         if (input.payment) parts.push(`paid by ${input.payment}`);
         if (input.shipping) parts.push(`with ${input.shipping}`);
         if (input.price) parts.push(`priced at between ${input.price}`);
-        if (input.clearance === true) parts.push(`and on clearance`);
+        if (input.clearance) parts.push(`and if it is on ${input.clearance}`);
 
         return parts.join(`, `);
     }
