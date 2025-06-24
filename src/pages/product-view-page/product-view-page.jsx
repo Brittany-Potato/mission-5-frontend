@@ -1,31 +1,36 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { styles } from "./product-view-page.module.css";
+import styles from "./product-view-page.module.css"; 
 
 export const ProductViewPage = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState(null); 
 
-    const { id } = useParams();
-    const { product, setProduct } = useState(null);
+  console.log("ProductViewPage component rendered");
+  console.log("Product ID from URL:", id);
 
-    useEffect(() => {
-        const fetchProduct = async () => {
-            try {
-                const response = await fetch(`http://localhost:3000/product/${id}`);
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                const data = await response.json();
-                setProduct(data);
-            } catch (error) {
-                console.error("Error fetching product:", error);
-            }
-        };
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/product/${id}`);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setProduct(data);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      }
+    };
 
-        fetchProduct();
-    })
+    fetchProduct();
+  }, [id]); 
+  
 
-    return (
-         <div className={styles.container}>
+  if (!product) return <div>Loading...</div>;
+
+  return (
+    <div className={styles.container}>
       <div className={styles.main}>
         {/* Left - Image Gallery */}
         <div className={styles.gallery}>
@@ -67,4 +72,4 @@ export const ProductViewPage = () => {
       </div>
     </div>
   );
-}
+};
