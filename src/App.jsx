@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<MainSearchPage />} />
           <Route path="/compare" element={<ComparisonPage />} />
           <Route path="/comparison-table" element={<ComparisonTablePage />} />
-          {/* <Route path="/" element={<productViewPage />} /> */}
+          <Route path="/" element={<productViewPage />} />
         </Routes>
       </Router>
     </>
