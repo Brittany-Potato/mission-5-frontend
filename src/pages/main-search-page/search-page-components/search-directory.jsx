@@ -4,7 +4,7 @@ import styles from './search-directory.module.css'
 export default function SearchDirectory() {
 
   const categories = [
-    "Bathrrom", "Cleaning Bins", "Curtains", "Bedframe", "lamp", "laundry", "storage", "travel", "table",
+    "Bathroom", "Cleaning Bins", "Curtains", "Bedframe", "lamp", "laundry", "storage", "travel", "table",
     "kitchen", "Heating and cooling", "Home decor", "art posters", "cleaning", "Mat and Rug", "outdoor", "clock",
     "utensils", "office", "blanket"
   ];
