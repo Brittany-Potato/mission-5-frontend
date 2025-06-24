@@ -1,3 +1,5 @@
+
+import { useNavigate } from 'react-router-dom'; // ✅ added
 import React, { useState, useEffect } from 'react';
 import styles from './nav-search-bar.module.css';
 import trademelogo from '../../pages/main-search-page/search-page-components/images/trademelogo.png';
@@ -6,6 +8,7 @@ import axios from 'axios';
 
 export default function NavSearchBar() {
 
+    const navigate = useNavigate(); // ✅ added
     const [value, setValue] = useState('');
     const [inputValue, setInputValue] = useState('');
 
@@ -51,7 +54,7 @@ export default function NavSearchBar() {
                     <a href="" className={styles.singleNav}>Categories</a>
                     <a href="" className={styles.singleNav}>Watchlist</a>
                     <a href="" className={styles.singleNav}>Favourites</a>
-                    <a href="" className={styles.singleNav}>Compare</a>
+                    <a onClick={() => navigate('/compare')} className={styles.singleNav} style={{ cursor: 'pointer' }}>Compare</a>
                     <a href="" className={styles.singleNav}>My Trade me</a>
                 </div>
                 <div className={styles.categoryIconDiv}>
@@ -97,6 +100,5 @@ export default function NavSearchBar() {
                 <a href="" className={styles.linkListItem}>List an Item</a>
             </div>
         </div>
-    )
+    );
 }
-
