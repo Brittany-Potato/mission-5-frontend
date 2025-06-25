@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./product-view-page.module.css"; 
 import NavSearchBar from '../../shared-components/nav-search-bar/nav-search-bar.jsx';
+import SimilarItems from "../../components/SimilarItems.jsx";
 import Footer from "../../shared-components/footer/footer.jsx";
+import TempPhoto from "../../images/chair.jpg"; // Placeholder image
 
 export const ProductViewPage = () => {
   const { id } = useParams();
@@ -39,7 +41,7 @@ export const ProductViewPage = () => {
           {/* Left - Image Gallery */}
           <div className={styles.gallery}>
             <img
-              src={product.Images?.[0] || "/placeholder.jpg"}
+              src={product.Images?.[0] || TempPhoto}
               alt={product.Title}
               className={styles.mainImage}
             />
@@ -70,9 +72,10 @@ export const ProductViewPage = () => {
 
         {/* Seller */}
         <div className={styles.seller}>
-          <h4>Seller: {product.Seller?.Name}</h4>
-          <p>Location: {product.Location}</p>
-          <p>Member Since: {new Date(product.Seller?.MemberSince).toLocaleDateString()}</p>
+          <h4>Seller: {product.Seller?.name}</h4>
+          <p>Location: {product.Seller?.Location}</p>
+          <p>Member Since: {new Date(product.Seller?.memberSince).toLocaleDateString()}</p>
+          <p>Rating: {product.Seller?.rating}</p>
         </div>
       </div>
       {/* Q&A Section */}
@@ -98,23 +101,10 @@ export const ProductViewPage = () => {
       </div>
 
       {/* Similar Items Section */}
-      <div className={styles.similarItems}>
-        <h2>Similar Items</h2>
-        <div className={styles.itemsContainer}>
-          {(product.SimilarItems || []).map((item, i) => (
-            <div className={styles.itemCard} key={i}>
-              <img src={item.Images?.[0] || "/placeholder.jpg"} alt={item.Title} />
-              <div className={styles.itemInfo}>
-                <p>{item.Location}</p>
-                <p>Closes {item.CloseDate || "N/A"}</p>
-                <p>{item.Title}</p>
-                <p className={styles.price}>Buy Now: {item.Price}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <SimilarItems productId={id} />
+      {/* Footer */}
       <Footer />    
     </>
   );
 };
+ 
