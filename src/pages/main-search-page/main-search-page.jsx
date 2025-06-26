@@ -5,6 +5,7 @@ import SearchDirectory from './search-page-components/search-directory.jsx';
 import SearchBar from './search-page-components/search-bar.jsx';
 import ProductGridDisplay from './search-page-components/product-grid-display.jsx';
 import NavSearchBar from '../../shared-components/nav-search-bar/nav-search-bar.jsx';
+import Footer from '../../shared-components/footer/footer.jsx';
 
 export default function MainSearchPage() {
     return (
@@ -16,6 +17,7 @@ export default function MainSearchPage() {
             <a href="" className={styles.moreLink}>More....</a>
             <p className={styles.resultsTitle}>Results</p>
             <ProductGridDisplay />
+            <Footer/>
         </div>
     )
 }
