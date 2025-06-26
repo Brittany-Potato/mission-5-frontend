@@ -1,5 +1,6 @@
 import React from 'react';
 import './ComparisonTablePage.css';
+import NavSearchBar from '../shared-components/nav-search-bar/nav-search-bar';
 
 const ComparisonTablePage = () => {
   const items = [
@@ -70,25 +71,39 @@ const ComparisonTablePage = () => {
   ];
 
   return (
-    <div className="comparison-flex-container">
-      {attributes.map((attribute, i) => (
-        <div key={i} className={`comparison-row ${i % 2 === 0 ? 'row-light' : 'row-white'}`}>
-          <div className="attribute-cell">
-            <div className="attribute-box">{attribute}</div>
+    <div>
+      <NavSearchBar />
+        <div className="comparison-header-section">
+          <h2 className="comparison-heading">Comparison Table</h2>
+          <div className="comparison-search-wrapper">
+          <input
+          type="text"
+          placeholder="Search product by name, Brand, categories"
+          className="comparison-input"
+          />
+        <button className="comparison-add-text">Add</button>
+      </div>
+    </div>
+      <div className="comparison-flex-container">
+        {attributes.map((attribute, i) => (
+          <div key={i} className={`comparison-row ${i % 2 === 0 ? 'row-light' : 'row-white'}`}>
+            <div className="attribute-cell">
+              <div className="attribute-box">{attribute}</div>
+            </div>
+            {items.map((item, j) => {
+              const value =
+                item[attribute.toLowerCase().replace(/\s/g, '')] ||
+                item[attribute.toLowerCase()] ||
+                '—';
+              return (
+                <div key={j} className="detail-cell">
+                  {value}
+                </div>
+              );
+            })}
           </div>
-          {items.map((item, j) => {
-            const value =
-              item[attribute.toLowerCase().replace(/\s/g, '')] ||
-              item[attribute.toLowerCase()] ||
-              '—';
-            return (
-              <div key={j} className="detail-cell">
-                {value}
-              </div>
-            );
-          })}
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
