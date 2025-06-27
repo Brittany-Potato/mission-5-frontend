@@ -46,7 +46,7 @@ export const ProductViewPage = () => {
               className={styles.mainImage}
             />
             <div className={styles.thumbnails}>
-              {product.Images?.map((img, i) => (
+              {product.Images?.map((img, i) => ( //CHANGE THIS 
                 <img key={i} src={img} alt={`thumb-${i}`} className={styles.thumb} />
               ))}
             </div>
