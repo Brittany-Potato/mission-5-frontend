@@ -6,7 +6,7 @@ import trademelogo from '../../pages/main-search-page/search-page-components/ima
 import axios from 'axios';
 
 
-export default function NavSearchBar() {
+export default function NavSearchBar({onSearchResults}) {
 
     const navigate = useNavigate(); // ✅ added
     const [value, setValue] = useState('');
@@ -20,15 +20,16 @@ export default function NavSearchBar() {
                 const response = await axios.post('http://localhost:3000/homepageSearch', {
                     search: inputValue
                 });
-                const innerData = response.data;
+                const data = response.data;
 
-                Object.entries(innerData).forEach(([key, value]) => {
+                Object.entries(data).forEach(([key, value]) => {
                     if (typeof value === 'object' && value !== null) {
-                        alert(`${key}: ${JSON.stringify(value, null, 2)}`);
+                        console.log(`${key}: ${JSON.stringify(value, null, 2)}`);
                     } else {
-                        alert(`${key}: ${value}`);
+                        console.log(`${key}: ${value}`);
                     }
                 });
+                onSearchResults(data);
                 // alert(response.data);
             } catch (err) {
                 console.error("Failed to search:", err.message);
