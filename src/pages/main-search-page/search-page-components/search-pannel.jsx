@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './search-pannel.module.css'
 import axios from 'axios'
 
-export default function SearchPannel() {
+export default function SearchPannel({ onSearchResults }) {
 
     const [selectButton, setSelectButton] = useState(false);
 
@@ -22,14 +22,15 @@ export default function SearchPannel() {
         const response = await axios.post('http://localhost:3000/homepageSearch', {
             search: searchPrompt
         }).then((response) => {
-            const innerData = response.data;
-            Object.entries(innerData).forEach(([key, value]) => {
+            const data = response.data;
+            Object.entries(data).forEach(([key, value]) => {
                 if (typeof value === 'object' && value !== null) {
-                    alert(`${key}: ${JSON.stringify(value, null, 2)}`);
+                    console.log(`${key}: ${JSON.stringify(value, null, 2)}`);
                 } else {
-                    alert(`${key}: ${value}`);
+                    console.log(`${key}: ${value}`);
                 }
-            })
+            });
+            onSearchResults(data);
         })
     }
 
@@ -53,20 +54,21 @@ export default function SearchPannel() {
                 const response = await axios.post('http://localhost:3000/homepageSearch', {
                     search: buildSearchPrompt(inputValue)
                 });
-                const innerData = response.data;
+                const data = response.data;
 
-                Object.entries(innerData).forEach(([key, value]) => {
+                Object.entries(data).forEach(([key, value]) => {
                     if (typeof value === 'object' && value !== null) {
-                        alert(`${key}: ${JSON.stringify(value, null, 2)}`);
+                        console.log(`${key}: ${JSON.stringify(value, null, 2)}`);
                     } else {
-                        alert(`${key}: ${value}`);
+                        console.log(`${key}: ${value}`);
                     }
                 });
-                // alert(response.data);
+                // console.log(response.data);
             } catch (err) {
                 console.error("Failed to search:", err.message);
             }
         };
+        onSearchResults(data);
     }
 
     const handleChange = (field, event) => {
