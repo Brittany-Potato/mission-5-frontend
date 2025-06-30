@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainSearchPage from './pages/main-search-page/main-search-page';
 import { ProductViewPage } from './pages/product-view-page/product-view-page';
-import ComparisonPage from './pages/ComparisonPage';
-import ComparisonTablePage from './pages/ComparisonTablePage';
+import ComparisonPage from './pages/ComparisonPage/ComparisonPage';
+import ComparisonTablePage from './pages/ComparisonTablePage/ComparisonTablePage';
 import './App.module.css';
+
 
 function App() {
   return (

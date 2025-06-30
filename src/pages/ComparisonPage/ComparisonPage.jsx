@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ComparisonPanel from '../components/ComparisonPanel';
+import ComparisonPanel from '../../components/ComparisonPanel';
 import './ComparisonPage.css';
 
 const ComparisonPage = () => {
@@ -74,6 +74,7 @@ const ComparisonPage = () => {
           <path d="M12 13L4 13L4 11L12 11L12 4L20 12L12 20L12 13Z" fill="#2D6EC2" />
         </svg>
       </button>
+
     </div>
   );
 };
