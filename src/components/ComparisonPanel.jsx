@@ -8,18 +8,21 @@ const ComparisonPanel = ({ items, onRemove }) => {
     <div className="comparison-container">
       <div
         className="comparison-grid"
-        style={{ gridTemplateColumns: `120px repeat(${items.length}, 268px)` }}
+        style={{ gridTemplateColumns: `120px 2rem repeat(${items.length}, 300px)` }}
       >
         <div></div>
+        <div></div>
         {items.map((item, idx) => (
-          <div key={idx} className="grid-product-card">
-            <img src={item.image} alt={item.title} />
-            <p>{item.location}</p>
-            <p>{item.closing}</p>
-            <h4>{item.title}</h4>
-            <p>Buy Now</p>
-            <strong>{item.price}</strong>
-          </div>
+        <div key={idx} className="grid-product-card">
+        <img src={item.image} alt={item.title} />
+        <div className="location-date">
+        <span>{item.location}</span>
+        <span>{item.closing}</span>
+        </div>
+        <h4>{item.title}</h4>
+        <div className="buy-now">Buy Now</div>
+        <div className="price">{item.price}</div>
+        </div>
         ))}
 
         {attributes.map((attr, rowIndex) => {
@@ -30,6 +33,7 @@ const ComparisonPanel = ({ items, onRemove }) => {
           return (
             <React.Fragment key={`row-${rowIndex}`}>
               <div className={`attribute-cell ${attrBg}`}>{attr}</div>
+              <div></div>
               {items.map((item, colIndex) => (
                 <div key={`val-${rowIndex}-${colIndex}`} className={`value-cell ${valBg}`}>
                   {item[attr.toLowerCase()]}
@@ -39,6 +43,7 @@ const ComparisonPanel = ({ items, onRemove }) => {
           );
         })}
 
+        <div></div>
         <div></div>
         {items.map((item) => (
           <div key={item.id} className="remove-btn-wrapper">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ComparisonPanel from '../components/ComparisonPanel';
+import ComparisonPanel from '../../components/ComparisonPanel';
+import './ComparisonPage.css';
 
 const ComparisonPage = () => {
   const navigate = useNavigate();
@@ -53,32 +54,27 @@ const ComparisonPage = () => {
   };
 
   return (
-    <div style={{ marginTop: '30px' }}>
+    <div className="comparison-page">
+      <div className="comparison-header">
+        <span className="compare-title">Compare with similar Items</span>
+        <div className="close-button" onClick={() => navigate('/')}> 
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+            <path d="M6 6L18 18M6 18L18 6" stroke="#2F2C28" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+        </div>
+      </div>
+
       {itemsToCompare.length > 0 && (
         <ComparisonPanel items={itemsToCompare} onRemove={handleRemoveItem} />
       )}
 
-      <button
-        onClick={() => navigate('/comparison-table')}
-        style={{
-          position: 'fixed',
-          bottom: '15px',
-          right: '15px',
-          padding: '12px 20px',
-          color: '#2D6EC2',
-          border: 'none',
-          fontSize: '20px',
-          fontWeight: '6 00',
-          borderRadius: '4px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-          cursor: 'pointer',
-          zIndex: 1000
-        }}
-      >
-        Comparison Table <span style={{ fontSize: '20px' }}>➔</span>
+      <button className="comparison-table-button" onClick={() => navigate('/comparison-table')}>
+        Comparison Table
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 13L4 13L4 11L12 11L12 4L20 12L12 20L12 13Z" fill="#2D6EC2" />
+        </svg>
       </button>
+
     </div>
   );
 };

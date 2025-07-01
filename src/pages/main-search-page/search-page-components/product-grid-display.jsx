@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import styles from './product-grid-display.module.css';
 import placeholder from './images/placeholder.png';
+import { Link } from "react-router-dom";
+import SearchPannel from './search-pannel';
 
-export default function ProductGridDisplay() {
+export default function ProductGridDisplay({ searchResults }) {
 
     const [products, setProducts] = useState([]);
 
@@ -21,12 +23,17 @@ export default function ProductGridDisplay() {
         fetchRandomProducts();
     }, []);
 
+    // Decide which products to display
+    const productsToDisplay = Array.isArray(searchResults) && searchResults.length > 0
+        ? searchResults
+        : products;
+
   return (
     <div className={styles.gridDiv}>    
-    {products.length === 0 && <p>No products to show.</p>}
+    {Array.isArray(productsToDisplay) && productsToDisplay.length === 0 && <p>No products to show.</p>}
 
-    {products.map((product, index) => (
-        <button key={index} className={styles.cardDiv}>
+    {Array.isArray(productsToDisplay) && productsToDisplay.map((product, index) => (
+        <Link key={index} className={styles.cardDiv} to={`/product/${product._id}`}> 
             <img 
             src={placeholder}
             alt={product.title || "item"}
@@ -37,7 +44,7 @@ export default function ProductGridDisplay() {
             <p className={styles.productTitle}>{product.Title}</p>
             <p className={styles.buyNow}>Buy Now</p>
             <p className={styles.productPrice}>{product.Price || "$--"}</p>
-        </button>
+        </Link>
     ))}
     </div>
   );
