@@ -81,22 +81,24 @@ export const ProductViewPage = () => {
       <div className={styles.container}>
           <div className={styles.main}>
             {/* Left - Image Gallery */}
-            <div className={styles.gallery}>
-              <img
-                src={mainImage}
-                alt={product.Title}
-                className={styles.mainImage}
-              />
-              <div className={styles.thumbnails}>
-                {imagesToShow.map((img, i) => (
-                  <img
-                    key={i}
-                    src={img}
-                    alt={`thumb-${i}`}
-                    className={`${styles.thumb} ${i === selectedImageIndex ? styles.selected : ''}`}
-                    onClick={() => {setMainImage(img); setSelectedImageIndex(i)}}
-                  />
-                ))}
+            <div className={styles.galleryContainer}>
+              <div className={styles.gallery}>
+                <img
+                  src={mainImage}
+                  alt={product.Title}
+                  className={styles.mainImage}
+                />
+                <div className={styles.thumbnails}>
+                  {imagesToShow.map((img, i) => (
+                    <img
+                      key={i}
+                      src={img}
+                      alt={`thumb-${i}`}
+                      className={`${styles.thumb} ${i === selectedImageIndex ? styles.selected : ''}`}
+                      onClick={() => {setMainImage(img); setSelectedImageIndex(i)}}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
 
