@@ -26,7 +26,7 @@ export default function ProductGridDisplay({ searchResults }) {
     // Decide which products to display
     const productsToDisplay = Array.isArray(searchResults) && searchResults.length > 0
         ? searchResults
-        : products;
+        : products; // If the product grid displays searchResults or Random products
 
   return (
     <div className={styles.gridDiv}>    

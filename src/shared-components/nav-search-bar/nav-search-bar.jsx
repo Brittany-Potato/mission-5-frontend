@@ -15,11 +15,11 @@ export default function NavSearchBar({onSearchResults}) {
 
     const handleKeyDown = async (event) => {
         if (event.key === 'Enter') {
-            event.preventDefault();
+            event.preventDefault(); // Preventing default form submission on Enter key
             try {
                 const response = await axios.post('http://localhost:3000/homepageSearch', {
                     search: inputValue
-                });
+                }); // Send POST request to the backend with the search input
                 const data = response.data;
 
                 Object.entries(data).forEach(([key, value]) => {
@@ -29,7 +29,8 @@ export default function NavSearchBar({onSearchResults}) {
                         console.log(`${key}: ${value}`);
                     }
                 });
-                onSearchResults(data);
+                // Log all key-value pairs of the response data
+                onSearchResults(data); // Pass search results back to the parent component or handler
                 // alert(response.data);
             } catch (err) {
                 console.error("Failed to search:", err.message);

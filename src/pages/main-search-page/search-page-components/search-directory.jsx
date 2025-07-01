@@ -13,7 +13,7 @@ export default function SearchDirectory() {
 
   useEffect(() => {
     const fetchCounts = async () => {
-      const newCounts = {};
+      const newCounts = {}; // Storing item counts per catagory
 
       await Promise.all(
         categories.map(async (title) => {
@@ -21,13 +21,13 @@ export default function SearchDirectory() {
             const res = await fetch("http://localhost:3000/countItems", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ title })
+              body: JSON.stringify({ title }) // Send the catagory title in the request body
             });
             const data = await res.json();
-            newCounts[title] = data.count || 0;
+            newCounts[title] = data.count || 0; // Assign count or fallback to 0 if undefined
           } catch (err) {
             console.error("Error fetching count for:", err.message.title);
-            newCounts[title] = 0;
+            newCounts[title] = 0;  // Default to 0 on fetch failure
           }
         })
       );
