@@ -139,3 +139,15 @@
   color: #0074cc;
 }
 
+.compareBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.compareBtn:hover {
+  transform: scale(1.05);
+}
