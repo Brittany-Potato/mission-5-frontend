@@ -10,6 +10,9 @@ import TempPhoto2 from "../../images/download.jpg"; // Placeholder image
 import TempPhoto3 from "../../images/rustic_medieval_web.jpg"; // Placeholder image
 import TempPhoto4 from "../../images/download (1).jpg"; // Placeholder image
 import TempPhoto5 from "../../images/download (2).jpg"; // Placeholder image
+import TempID from "../../images/Component 7.png"; // Placeholder image
+import TempSeller from "../../images/Component 4.png"; // Placeholder image
+import TempQuestion from "../../images/Component 1.png"; // Placeholder image
 
 const tempImages = [
   TempPhoto,
@@ -29,6 +32,11 @@ const watchIcon = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 </clipPath>
 </defs>
 </svg>
+
+const favouriteIcon = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<path d="M12.1 18.55L12 18.65L11.89 18.55C7.14 14.24 4 11.39 4 8.5C4 6.5 5.5 5 7.5 5C9.04 5 10.54 6 11.07 7.36H12.93C13.46 6 14.96 5 16.5 5C18.5 5 20 6.5 20 8.5C20 11.39 16.86 14.24 12.1 18.55ZM16.5 3C14.76 3 13.09 3.81 12 5.08C10.91 3.81 9.24 3 7.5 3C4.42 3 2 5.41 2 8.5C2 12.27 5.4 15.36 10.55 20.03L12 21.35L13.45 20.03C18.6 15.36 22 12.27 22 8.5C22 5.41 19.58 3 16.5 3Z" fill="#fff"/>
+</svg>
+
 
 const compareIcon = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
   <path d="M11 20H5.616C5.15533 20 4.771 19.846 4.463 19.538C4.155 19.23 4.00067 18.8453 4 18.384V5.616C4 5.15534 4.15433 4.771 4.463 4.463C4.77167 4.155 5.156 4.00067 5.616 4H11V2.27C11 2.12734 11.0477 2.008 11.143 1.912C11.2383 1.816 11.3573 1.76834 11.5 1.769C11.6427 1.76967 11.7617 1.81767 11.857 1.913C11.9523 2.00834 12 2.127 12 2.269V21.731C12 21.873 11.9523 21.9917 11.857 22.087C11.7617 22.1823 11.6427 22.2303 11.5 22.231C11.3573 22.2317 11.2383 22.1837 11.143 22.087C11.0477 21.9903 11 21.8717 11 21.731V20ZM5 18H11V10.808L5 18ZM14 20V12L19 18V5.616C19 5.462 18.936 5.32067 18.808 5.192C18.68 5.06334 18.5387 4.99934 18.384 5H14V4H18.385C18.845 4 19.229 4.15434 19.537 4.463C19.845 4.77167 19.9993 5.156 20 5.616V18.385C20 18.845 19.8457 19.2293 19.537 19.538C19.2283 19.8467 18.8443 20.0007 18.385 20H14Z" fill="#2F2C28"/>
@@ -140,33 +148,73 @@ export const ProductViewPage = () => {
 
           {/* Seller */}
           <div className={styles.seller}>
-            <h4>Seller: {product.Seller?.name}</h4>
-            <p>Location: {product.Seller?.Location}</p>
-            <p>Member Since: {new Date(product.Seller?.memberSince).toLocaleDateString()}</p>
-            <p>Rating: {product.Seller?.rating}</p>
+            <h2>About the seller</h2>
+            <div className={styles.sellerInfo}>
+              <div className={styles.sellerContainer}>
+                <div className={styles.labelContainer}>
+                    <p>Location:</p>
+                    <p>{product.Seller?.location}</p>
+                </div>
+                <div className={styles.infoContainer}>
+                    <p>Member Since:</p>
+                    <p>{new Date(product.Seller?.memberSince).toLocaleDateString()}</p>
+                </div>
+                <div className={styles.buttonContainer}>
+                  <button className={styles.favouritesBtn}>{favouriteIcon} Add to Favourites</button>
+                </div>
+              </div>
+              <div className={styles.sellerImage}>
+                <img src={product.Seller?.image || TempID} alt="Seller" />
+                <h4> {product.Seller?.name}</h4>
+                <p>Rating: {product.Seller?.rating}</p>
+              </div>
+            </div>
           </div>
       
 
       {/* Q&A Section */}
       <div className={styles.qaSection}>
         <h2>Questions & Answers</h2>
+        
+        <div className={styles.qaContainer}>
+          <div className={styles.qaIcon}>         
+            <div className={styles.qaItem}>
+              <label>Is the mattress soft or firm?</label>
+            </div>
+            <img src={TempQuestion} alt="Question Icon"/>
+          </div>
+          
+          <div className={styles.qaIcon2}>
+            <img src={TempSeller} alt="Seller Icon"/>
+            <div className={styles.qaResponse}>
+              <label>Hi there, It’s very soft</label>
+            </div>
+          </div>
+          
+          <div className={styles.qaIcon}>  
+            <div className={styles.qaItem}>
+              <label>Where is the location?</label>
+            </div>
+            <img src={TempQuestion} alt="Question Icon"/>
+          </div>
+          
+          <div className={styles.qaIcon2}>
+            <img src={TempSeller} alt="Seller Icon"/>
+            <div className={styles.qaResponse}>
+              <label>{product.Seller?.location}</label>
+            </div>
+          </div>
+      </div>
 
-        <div className={styles.qaItem}>
-          <label>Is the mattress soft or firm?</label>
-          <div className={styles.qaResponse}>Hi there, It’s very soft</div>
-        </div>
 
-        <div className={styles.qaItem}>
-          <label>Where is the location?</label>
-          <div className={styles.qaResponse}>Auckland City</div>
-        </div>
-
+      <div className={styles.qaInputContainer}>            
         <input
           type="text"
           placeholder="Type your question here"
           className={styles.qaInput}
         />
         <button className={styles.askButton}>Ask Question</button>
+      </div>
       </div>
 
       {/* Similar Items Section */}
