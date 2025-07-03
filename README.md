@@ -42,7 +42,7 @@ This projects allows users to:
 - Click compare to add products to compare against eachother
 - Ask questions in the product Q & A section under the selected product
 
-## ~ Teach stack ~
+## ~ Tech stack ~
 
 - React.js | Frontend
 - Node.js | Backend && CLI
