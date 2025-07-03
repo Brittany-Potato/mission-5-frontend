@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ComparisonTablePage.css';
 import NavSearchBar from '../../shared-components/nav-search-bar/nav-search-bar';
+import Footer from '../../shared-components/footer/footer.jsx';
 
 const ComparisonTablePage = () => {
   const [search, setSearch] = useState('');
@@ -20,17 +21,26 @@ const ComparisonTablePage = () => {
     if (!cleanedSearch || selectedItems.length >= 2) return;
 
     try {
-      const response = await fetch('http://localhost:3000/homepageSearch', {
+      const response = await fetch('http://localhost:3000/teancumSearch', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ search: cleanedSearch }),
       });
 
       const data = await response.json();
-      const match = data.results?.[0];
+      const results = Array.isArray(data.results) ? data.results : [];
+
+      console.log("📦 Suggestions response:", results);
+
+      const match = results[0];
 
       if (match) {
-        setSelectedItems([...selectedItems, match]);
+        if (selectedItems.some(item => item.title === match.Title || item.title === match.title)) {
+          alert("Item already selected.");
+          return;
+        }
+
+        setSelectedItems([...selectedItems, normalizeItem(match)]);
         setSearch('');
         setSuggestions([]);
       } else {
@@ -65,20 +75,40 @@ const ComparisonTablePage = () => {
     }
 
     try {
-      const res = await fetch('http://localhost:3000/homepageSearch', {
+      const res = await fetch('http://localhost:3000/teancumSearch', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ search: input }),
       });
 
       const data = await res.json();
-      const results = Array.isArray(data) ? data : data.results || [];
-      setSuggestions(results.slice(0, 5));
+      const results = Array.isArray(data.results) ? data.results : [];
+
+      console.log("🔍 Suggestions for input:", input, results);
+
+      results.sort((a, b) => (a.Title?.length || 0) - (b.Title?.length || 0));
+      setSuggestions(results.slice(0, 5).map(normalizeItem));
     } catch (err) {
       console.error('Failed to fetch suggestions:', err);
       setSuggestions([]);
     }
   };
+
+  const normalizeItem = (item) => ({
+    title: item.title || item.Title || '',
+    price: item.price || item.Price || '',
+    condition: item.condition || item.Condition || '',
+    features: item.features || item.feature || item.Feature || [],
+    description: item.description || item.Description || '',
+    dimension: item.dimension || item.Dimension || '',
+    weight: item.weight || item.Weight || '',
+    colour: item.colour || item.color || item.Color || '',
+    shipping: item.shipping || item.Shipping || '',
+    payment: item.payment || item.Payment || '',
+    brand: item.brand || item.Brand || '',
+    location: item.location || item.Location || '',
+    seller: item.seller || {},
+  });
 
   const attributes = [
     { label: 'Listing Price', key: 'price' },
@@ -110,12 +140,18 @@ const ComparisonTablePage = () => {
               onFocus={() => setShowSuggestions(true)}
               onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
             />
-            <button className="comparison-add-text" onClick={handleAdd}>Add</button>
+            <button
+              className="comparison-add-text"
+              onClick={handleAdd}
+              disabled={selectedItems.length >= 2}
+            >
+              Add
+            </button>
 
             {showSuggestions && suggestions.length > 0 && (
               <ul className="suggestions-list">
                 {suggestions.map((item, index) => (
-                  <li key={index} onClick={() => handleSuggestionClick(item.title)}>
+                  <li key={index} onMouseDown={() => handleSuggestionClick(item.title)}>
                     <div className="suggestion-item">
                       <img src={`/images/item${(index % 5) + 1}.jpg`} alt="thumb" className="suggestion-thumb" />
                       <div className="suggestion-text">
@@ -200,11 +236,13 @@ const ComparisonTablePage = () => {
         </div>
       )}
 
-      <div className="back-button" onClick={() => window.history.back()}>
+            <div className="back-button" onClick={() => window.history.back()}>
         <span className="back-arrow">←</span>
         <span className="back-text">Back</span>
       </div>
-    </div>
+
+      <Footer />
+    </div>  
   );
 };
 
