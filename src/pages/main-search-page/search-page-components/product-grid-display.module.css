@@ -66,6 +66,13 @@ p {
 
 }
 
+.watchlistButton {
+    display: block;
+    position: absolute;
+    margin-top: -21.2%;
+    margin-left: 9.6%;
+}
+
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 @media (max-width: 390px) {
@@ -81,6 +88,7 @@ p {
         gap: 20px;
     }
 
+
     .cardDiv {
         height: auto;
         width: 100%;
@@ -91,7 +99,11 @@ p {
         height: auto;
     }
 
-    .productLocation, .auctionClosingDate, .productTitle, .buyNow, .productPrice {
+    .productLocation,
+    .auctionClosingDate,
+    .productTitle,
+    .buyNow,
+    .productPrice {
         font-size: 20px;
     }
 
