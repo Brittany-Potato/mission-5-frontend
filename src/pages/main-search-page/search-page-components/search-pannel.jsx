@@ -16,11 +16,11 @@ export default function SearchPannel({ onSearchResults }) {
 
     async function handleClick() {
         console.log("Search button clicked");
-        const searchPrompt = buildSearchPrompt(inputValue);
+        const searchPrompt = buildSearchPrompt(inputValue); // Build natural language query from user inputs
         console.log("Sending search prompt:", searchPrompt);
 
         const response = await axios.post('http://localhost:3000/homepageSearch', {
-            search: searchPrompt
+            search: searchPrompt // Send the generated search prompt to the backend
         }).then((response) => {
             const data = response.data;
             Object.entries(data).forEach(([key, value]) => {
@@ -30,7 +30,7 @@ export default function SearchPannel({ onSearchResults }) {
                     console.log(`${key}: ${value}`);
                 }
             });
-            onSearchResults(data);
+            onSearchResults(data); // Pass results
         })
     }
 
@@ -45,17 +45,18 @@ export default function SearchPannel({ onSearchResults }) {
         price: '',
         clearance: '',
 
-    });
+    }); // State to hold user input fields for building a custom search query
 
     const handleKeyDown = async (event) => {
         if (event.key === 'Enter') {
-            event.preventDefault();
+            event.preventDefault(); // Prevent default form behaviour
             try {
                 const response = await axios.post('http://localhost:3000/homepageSearch', {
                     search: buildSearchPrompt(inputValue)
                 });
                 const data = response.data;
 
+                // Log all key/value pairs
                 Object.entries(data).forEach(([key, value]) => {
                     if (typeof value === 'object' && value !== null) {
                         console.log(`${key}: ${JSON.stringify(value, null, 2)}`);
@@ -68,7 +69,7 @@ export default function SearchPannel({ onSearchResults }) {
                 console.error("Failed to search:", err.message);
             }
         };
-        onSearchResults(data);
+        onSearchResults(data); // Pass results back up
     }
 
     const handleChange = (field, event) => {
@@ -77,7 +78,7 @@ export default function SearchPannel({ onSearchResults }) {
             [field]: event.target.value,
 
 
-        }));
+        })); // Update the specific input field in the inputValue state
     }
 
     function buildSearchPrompt(input) {
@@ -94,7 +95,7 @@ export default function SearchPannel({ onSearchResults }) {
 
         return parts.join(`, `);
     }
-
+// Converts structured search input into a natural language prompt string for the AI
 
 
 
